@@ -25,23 +25,8 @@ three-minute introduction to the board game Clue, please see this [video](https:
    hand – this will be achieved through input validation in your implementation).
 
 ## There are some Makefile commands below:  
-+ Build the JUnit test
-```
-make
-```
-+ Go through the test
-```
-make test
-```
-+ Build my Main.java
-```
-make build
-```
-+ Play this game
-```
-make run
-```
-+ Remove all that are not source files
-```
-make clean
-```
++ `make`: Build the JUnit test
++ `make test`: Go through the test
++ `make build`: Build my Main.java
++ `make run`: Play this game
++ `make clean`: Remove all that are not source files
