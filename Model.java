@@ -48,6 +48,7 @@ public class Model {
     public void showList(ArrayList<Card> arrayList){
         for (int i = 0; i < arrayList.size(); i++) {
             System.out.print(arrayList.get(i).getName());
+
             if (i!=arrayList.size()-1){
                 System.out.print(", ");
             }
@@ -141,7 +142,7 @@ public class Model {
                 Guess playerGuess = iPlayer.getGuess();
                 System.out.println(playerGuess.printResult());
 
-                if (playerGuess.isAccusation()) {
+                if (playerGuess.isAccusation()) {  // Accusation
                     // check answer, correct to win, wrong to be removed
                     if (iPlayer instanceof HumanPlayer) {
                         HumanPlayer hPlayer = (HumanPlayer) iPlayer;
@@ -162,8 +163,7 @@ public class Model {
                             numActivePlayer--;
                         }
                     }
-                } else {
-                    // Suggestion
+                } else {  // Suggestion
                     boolean isAnswered=false;
                     int i=currTurn;
                     int askingTimes=0;
@@ -215,7 +215,9 @@ public class Model {
                 }
 
             }
-        }
+        }  // end while
+
+        // Game is Over here
     }
 
 }

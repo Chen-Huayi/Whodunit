@@ -98,6 +98,7 @@ public class ComputerPlayer implements IPlayer{
 
         if (cardType.equals("suspect")){
             int choiceSize=peopleChoice.size();
+
             while (i < choiceSize && !isFound){
                 if (compareName(c, peopleChoice.get(i))){
                     peopleChoice.remove(i);
@@ -105,8 +106,10 @@ public class ComputerPlayer implements IPlayer{
                 }
                 i++;
             }
+
         }else if (cardType.equals("location")){
             int choiceSize=placeChoice.size();
+
             while (i < choiceSize && !isFound){
                 if (compareName(c, placeChoice.get(i))){
                     placeChoice.remove(i);
@@ -114,8 +117,10 @@ public class ComputerPlayer implements IPlayer{
                 }
                 i++;
             }
+
         }else {
             int choiceSize=weaponChoice.size();
+
             while (i < choiceSize && !isFound){
                 if (compareName(c, weaponChoice.get(i))){
                     weaponChoice.remove(i);
@@ -124,6 +129,7 @@ public class ComputerPlayer implements IPlayer{
                 i++;
             }
         }
+
         if (isFound) {
             numUnknownCard--;
         }
@@ -136,11 +142,7 @@ public class ComputerPlayer implements IPlayer{
     // Returns: boolean
     //------------------------------------------------------
     public boolean compareName(Card card1, Card card2){
-        boolean isSame=false;
-        if (card1.getName().equals(card2.getName())){
-            isSame=true;
-        }
-        return isSame;
+        return card1.getName().equals(card2.getName());
     }
 
     //------------------------------------------------------
@@ -154,6 +156,7 @@ public class ComputerPlayer implements IPlayer{
         this.people=people;
         this.places=places;
         this.weapons=weapons;
+
         peopleChoice=new ArrayList<>(people);
         placeChoice=new ArrayList<>(places);
         weaponChoice=new ArrayList<>(weapons);
@@ -191,15 +194,15 @@ public class ComputerPlayer implements IPlayer{
         ArrayList<Integer> list = g.getChoice();
         ArrayList<Card> respondAnswer = new ArrayList<>();
 
-        for (int i = 0; i < hand.size(); i++) {
-            if (compareName(people.get(list.get(0)), hand.get(i))) {
-                respondAnswer.add(hand.get(i));
+        for (Card card : hand) {
+            if (compareName(people.get(list.get(0)), card)) {
+                respondAnswer.add(card);
             }
-            if (compareName(places.get(list.get(1)), hand.get(i))) {
-                respondAnswer.add(hand.get(i));
+            if (compareName(places.get(list.get(1)), card)) {
+                respondAnswer.add(card);
             }
-            if (compareName(weapons.get(list.get(2)), hand.get(i))){
-                respondAnswer.add(hand.get(i));
+            if (compareName(weapons.get(list.get(2)), card)) {
+                respondAnswer.add(card);
             }
         }
 
@@ -245,7 +248,6 @@ public class ComputerPlayer implements IPlayer{
         int choice3=weapons.indexOf(weaponChoice.get(randomChoice3));
 
         isAccusation();
-
         guess = new Guess(index, choice1, choice2, choice3, people, places, weapons, isAccusation);
 
         return guess;

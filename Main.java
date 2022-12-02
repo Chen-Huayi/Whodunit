@@ -50,8 +50,24 @@ public class Main {
         weapon.add(new Card("weapon",  "<poison>"));
 
         // get how many computer players
-        Scanner input=new Scanner(System.in);
-        int numCompPlayer = input.nextInt();
+        boolean isValid=false;
+        int numCompPlayer=-1;
+
+        while (!isValid){
+            Scanner keyBoard=new Scanner(System.in);
+
+            if (keyBoard.hasNextInt()){
+                numCompPlayer=keyBoard.nextInt();
+
+                if (numCompPlayer>0){
+                    isValid=true;
+                }else {
+                    System.out.println("Invalid number of computer players. Try again.");
+                }
+            } else {
+                System.out.println("Please enter a number. Try again.");
+            }
+        }
 
         hPlayer=new HumanPlayer();
         players.add(hPlayer);

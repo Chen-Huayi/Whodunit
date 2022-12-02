@@ -69,12 +69,16 @@ public class HumanPlayer implements IPlayer{
 
         while (!isValid){
             Scanner keyBoard=new Scanner(System.in);
-            choice=keyBoard.nextInt();
 
-            if (choice>=0 && choice<arrayList.size()){
-                isValid=true;
-            }else {
-                System.out.println("Not valid. Try again.");
+            if (keyBoard.hasNextInt()){
+                choice=keyBoard.nextInt();
+                if (choice>=0 && choice<arrayList.size()){
+                    isValid=true;
+                }else {
+                    System.out.println("Invalid choice index. Try again.");
+                }
+            } else {
+                System.out.println("Please enter a number. Try again.");
             }
         }
         return choice;

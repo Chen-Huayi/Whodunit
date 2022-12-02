@@ -72,15 +72,15 @@ public class Guess {
     public String printResult(){
         String result;
         if (isAccusation){
-            result="  Player "+index+":  Accusation: "
+            result="  (Player "+index+":  Accusation: "
                     +suspect.get(suspectIndex).getName() +" in "
                     +location.get(locationIndex).getName()+" with the "
-                    +weapon.get(weaponIndex).getName();
+                    +weapon.get(weaponIndex).getName()+")";
         }else {
-            result="  Player "+index+":  Suggestion: "
+            result="  (Player "+index+":  Suggestion: "
                     +suspect.get(suspectIndex).getName() +" in "
                     +location.get(locationIndex).getName()+" with the "
-                    +weapon.get(weaponIndex).getName();
+                    +weapon.get(weaponIndex).getName()+")";
         }
         return result;
     }
